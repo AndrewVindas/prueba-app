@@ -2,5 +2,8 @@ Flask==3.0.3
 Flask-SQLAlchemy==3.1.1
 psycopg2-binary==2.9.9          # Render usa PostgreSQL
 openpyxl==3.1.2                 # Para exportar Excel
-uvicorn
-fastapi
+flask
+gunicorn
+psycopg2-binary
+sqlalchemy
+openpyxl
