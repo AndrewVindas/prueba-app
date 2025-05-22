@@ -3,14 +3,14 @@ from flask import Flask, request, jsonify, send_file
 from models import db, Cliente, Servicio, Trabajo
 from openpyxl import Workbook
 import io
-
+import os
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     "postgresql+psycopg2://"
-    f"{request.environ.get('DB_USER','postgres')}:"
-    f"{request.environ.get('DB_PASS','postgres')}@"
-    f"{request.environ.get('DB_HOST','localhost')}:5432/"
-    f"{request.environ.get('DB_NAME','render')}"
+    f"{os.environ.get('DB_USER', 'postgres')}:" +
+    f"{os.environ.get('DB_PASS', 'postgres')}@" +
+    f"{os.environ.get('DB_HOST', 'localhost')}:5432/" +
+    f"{os.environ.get('DB_NAME', 'render')}"
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
