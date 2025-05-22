@@ -4,6 +4,17 @@ from models import db, Cliente, Servicio, Trabajo
 from openpyxl import Workbook
 import io
 import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import os
+
+app = Flask(__name__)
+# configuración aquí...
+
+db = SQLAlchemy(app)
+
+with app.app_context():
+    db.create_all()
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     "postgresql+psycopg2://"
